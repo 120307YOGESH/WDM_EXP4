@@ -1,5 +1,5 @@
 ### EX4 Implementation of Cluster and Visitor Segmentation for Navigation patterns
-### DATE: 
+### DATE: 07.02.2026
 ### AIM: To implement Cluster and Visitor Segmentation for Navigation patterns in Python.
 ### Description:
 <div align= "justify">Cluster visitor segmentation refers to the process of grouping or categorizing visitors to a website, 
@@ -17,33 +17,58 @@
 ```python
 # Visitor segmentation based on characteristics
 # read the data
-/*WRITE YOUR CODE HERE
+
+
+import pandas as pd
+visitor_df = pd.read_csv('/content/clustervisitor.csv')
 
 # Perform segmentation based on characteristics (e.g., age groups)
-/*WRITE YOUR CODE HERE
+age_groups = {
+    'Young': visitor_df['Age'] <= 30,
+    'Middle-aged': (visitor_df['Age'] > 30) & (visitor_df['Age'] <= 50),
+    'Elderly': visitor_df['Age'] > 50
+}
+
+for group, condition in age_groups.items():  
+    visitors_in_group = visitor_df[condition] 
+    print(f"Visitors in {group} age group:")
+    print(visitors_in_group)
+
 
 ```
 ### Output:
 
+<img width="531" height="816" alt="image" src="https://github.com/user-attachments/assets/4177154c-bb84-4694-bb49-be3633d6790c" />
+
+
 ### Visualization:
 ```python
+
+import matplotlib.pyplot as plt
 # Create a list to store counts of visitors in each age group
-/*WRITE YOUR CODE HERE
+visitor_counts=[]
 
 # Count visitors in each age group
-/*WRITE YOUR CODE HERE
-    
-# Define age group labels and plot a bar chart
-/*WRITE YOUR CODE HERE
+for group,condition in age_groups.items():
+  visitors_in_group=visitor_df[condition]
+  visitor_counts.append(len(visitors_in_group))
 
+# Define age group labels and plot a bar chart
+
+age_group_labels=list(age_groups.keys())
 plt.figure(figsize=(8, 6))
 plt.bar(age_group_labels, visitor_counts, color='skyblue')
 plt.xlabel('Age Groups')
 plt.ylabel('Number of Visitors')
 plt.title('Visitor Distribution Across Age Groups')
 plt.show()
+
 ```
 ### Output:
 
+<img width="700" height="547" alt="image" src="https://github.com/user-attachments/assets/7efb242d-6ded-422b-b1cc-f833ba44044f" />
+
 
 ### Result:
+
+Hence Cluster and Visitor Segmentation for Navigation patterns in Python is implemented.
