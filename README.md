@@ -18,7 +18,6 @@
 # Visitor segmentation based on characteristics
 # read the data
 
-
 import pandas as pd
 visitor_df = pd.read_csv('/content/clustervisitor.csv')
 
