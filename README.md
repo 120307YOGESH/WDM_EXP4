@@ -29,7 +29,8 @@ age_groups = {
 }
 
 for group, condition in age_groups.items():  
-    visitors_in_group = visitor_df[condition] 
+    visitors_in_group = visitor_df[condition]
+    print(f"count : {len(visitors_in_group)}")
     print(f"Visitors in {group} age group:")
     print(visitors_in_group)
 
